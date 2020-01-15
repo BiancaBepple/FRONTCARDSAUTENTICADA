@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.6.0/sweetalert2.min.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/bootstrap/dist/css/bootstrap.min.css">
+  <script src="./assets/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <title>ES6 Cards</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark mb-5">
+    <span class="navbar-brand mb-0 h1">Lista de recados - ES6</span>
+    <div class="row mt-1 mb-1">
+
+
+      <div class="col-sm">
+        <button type="submit" id="btn_open_cadastro" class="btn btn-primary">Cadastro</button>
+        <button type="submit" id="btn_open_login" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row mt-5 mb-5" id="row_form">
+      <div class="col-sm">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Título</label>
+            <input type="text" class="form-control" id="input_title" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">Digite um título para o recado.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Conteúdo</label>
+            <input type="text" class="form-control" id="input_content">
+          </div>
+          <button type="submit" id="btn_create" class="btn btn-primary">Criar</button>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="row mt-5 mb-5" id="row_cards">
+
+    </div>
+  </div>
+  <div class="container" id="row_modal">
+    <div class="row mt-5 mb-5">
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Card</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Título</label>
+                <input type="text" class="form-control" id="edit_title" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">Digite um título para o recado.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Conteúdo</label>
+                <input type="text" class="form-control" id="edit_content">
+                <input type="hidden" id="edit_id">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btn_edit" class="btn btn-primary">Atualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de login   -->
+  <div class="container" id="row_modal">
+    <div class="row mt-5 mb-5">
+      <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">E-mail</label>
+                <input type="text" class="form-control" id="login_email" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="login_password">
+                <input type="hidden" id="modal_login">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="btn_login" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal de cadastro -->
+  <div class="container" id="row_modal">
+    <div class="row mt-5 mb-5">
+      <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input type="text" class="form-control" id="cad_nome" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control" id="cad_email" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input type="password" class="form-control" id="cad_password">
+                <input type="hidden" id="edit_id">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btn_cadastrar" class="btn btn-primary">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./bundle.js"></script>
+
+</body>
+
+</html>
