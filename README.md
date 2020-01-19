@@ -13,4 +13,4 @@ This is a simple application to display the ES6 code. Cards.
 
 ## Access http://localhost:8080
 
-## Works with AuthenticationJWTNode repository
+## Works with AuthenticationJWTNode repository or not
