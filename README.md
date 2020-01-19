@@ -1,5 +1,5 @@
-# scrapbook-es6
-This is a simple application to display the ES6 code. Scrapbook.
+# Cards-es6
+This is a simple application to display the ES6 code. Cards.
 
 # Copy the project and setup:
 
@@ -12,3 +12,5 @@ This is a simple application to display the ES6 code. Scrapbook.
 ## After run command **yarn dev**
 
 ## Access http://localhost:8080
+
+## Works with AuthenticationJWTNode repository
